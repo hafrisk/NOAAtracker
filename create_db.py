@@ -15,7 +15,7 @@ CREATE TABLE data (
     weather         TEXT,
     skycond         TEXT,
     airtemp         INTEGER,
-    Dewpoint        INTEGER,
+    dewpoint        INTEGER,
     sixhrmax        INTEGER,
     sixhrmin        INTEGER,
     relhum          INTEGER,
