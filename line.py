@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 conn = sqlite3.connect('NOAA_data.sqlite')
 cur = conn.cursor()
 
-cur.execute('SELECT timestamp, airtemp FROM data')
+cur.execute('SELECT timestamp, airtemp FROM data ORDER BY timestamp')
 dates = list()
 temps = list()
 for row in cur :
