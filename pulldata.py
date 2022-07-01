@@ -17,6 +17,7 @@ current_day = date[2]
 current_month = date[1]
 current_year = date[0]
 
+
 # Ignore SSL certificate errors
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
@@ -90,17 +91,42 @@ for tag in tags:
                 continue
 
         #calcuate date and month combination, accounting for changes that happen at beginning of new months and new years
+        print('current day: ', current_day)
+        print('list: ',lst[0])
         if current_day < 4:
-            if str(lst[0]) > 20:
+            if int(lst[0]) > 20:
                 if current_month == 1:
                     month = 12
                     year = current_year - 1
+                    day = int(lst[0])
+                    print('new year fix')
+                    print(day)
+                    print(month)
+                    print(year)
                 else:
                     month = current_month - 1
+                    year = current_year
+                    day = int(lst[0])
+                    print('new month fix')
+                    print(day)
+                    print(month)
+                    print(year)
+            else:
+                month = current_month
+                year = current_year
+                day = int(lst[0])
+                print('early month no fix')
+                print(day)
+                print(month)
+                print(year)
         else:
             day = int(lst[0])
             month = current_month
             year = current_year
+            print('no fix')
+            print(day)
+            print(month)
+            print(year)
         #calculate the time from the string value
         time = lst[1].split(':')
         #create datetime value
